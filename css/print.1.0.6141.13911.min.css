@@ -1,0 +1,48 @@
+body {
+    font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif !important
+}
+
+.header,
+.breadcrumbs,
+.filters,
+.recipe-bd-cta,
+.recipe-bd-social,
+.recipeProductSnippets,
+.footer {
+    display: none
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+ul ul {
+    list-style: disc
+}
+
+a:link,
+a:visited {
+    color: #000;
+    text-decoration: underline
+}
+
+.valuePair-label {
+    font-weight: 900
+}
+
+.ingredient-amount,
+.ingredient-label {
+    display: inline;
+    width: auto
+}
+
+.recipeInstruction {
+    page-break-inside: avoid
+}
+
+.recipeInstruction-ft {
+    font-style: italic
+}
