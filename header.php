@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html class="no-js" lang="<?php language_attributes(); ?>">
 	<head><meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
-		
-	">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
     <meta name="description" content="<?php bloginfo('description') ?>" />
@@ -213,12 +211,6 @@
 
 		            <div class="js-headerDropdowns" data-disabled-breakpoints="small medium">
 
-
-
-
-
-
-
 <?php 
 
 
@@ -340,13 +332,7 @@ echo '<ul class="headerMainNav">';
 	                'fallback_cb'       => 'toscanarunner_default_menu_left'
 	                ));
 	                
-	               wp_nav_menu( array(
-	                'menu'              => __( 'Primay Menu', 'digitaljourney'),
-	                'theme_location'    => 'primarymenuright',
-	                'depth'             => 2,
-	                'menu_class'        => 'middile-menu-right',
-	                'fallback_cb'       => 'toscanarunner_default_menu_right'
-	                ));                
+	                           
 	            ?>
                     
                     <div class="free_deliv_cta">

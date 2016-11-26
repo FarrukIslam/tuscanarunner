@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div row><div class="container">
+
 	
 <?php
 	/**
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 	return;
 	 }
 ?>
-
+<div row><div class="container">
 <div itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="col-md-6">
 
@@ -97,7 +97,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 </div><!-- #product-<?php the_ID(); ?> -->
 
-<?php do_action( 'woocommerce_after_single_product' ); ?>
-
 	</div>
 </div>
+
+
+
+<?php do_action( 'woocommerce_after_single_product' ); ?>
+

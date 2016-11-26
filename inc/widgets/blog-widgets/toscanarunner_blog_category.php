@@ -4,8 +4,8 @@
 
 class bestblog_category_list extends WP_Widget{
 	public function __construct(){
-		parent::__construct('bestblog_category_list','Bestblog category list Widgets', array(
-			'description' => 'Add category list box on Bestblog Widgets'
+		parent::__construct('bestblog_category_list','Toscanarunner Blog category list Widgets', array(
+			'description' => 'Add category list box on Toscanarunner Widgets'
 		));
 		
 	}

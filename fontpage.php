@@ -3,32 +3,13 @@
  get_header(); ?>
 
 
-<div class="wrapper">
 	<div class="row">
         <div class="container">
             <!-- <div class="col-md-12"> -->
-                <div class="banner">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/ylo-768.jpg" class="banner-img img-responsive hide-at-700">
-                    <div class="banner-welcome"><h2>Welcome to Schwan's Home Service</h2></div>
-                    <div class="banner-content">
-                        <h1>Delicious food, <span>delivered right to your door.</span></h1>
-                        <ul class="center-left">
-                            <li class="easy-123_1"><div class="mobile-show">Shop</div>
-                            <div class="mobile-hide">Visit schwans.com</div>
-                            </li>
-                            <li class="easy-123_2"><div class="mobile-show">Place Your Order</div>
-                            <div class="mobile-hide">Choose your delivery date and time</div>
-                            </li>
-                            <li class="easy-123_3"><div class="mobile-show">Select Your Delivery</div>
-                            <div class="mobile-hide">Start making delicious, flavorful foods more easily today.</div>
-                            </li>
-                        </ul>
 
-
-                    </div>
-                     <div class="hero-bd-cta hero-bd-cta-bottom-right"><a class="btn btn_secondary btn_bottom-right" href="#" title="Learn More">Learn More</a>
-                 </div>
-                </div>
+            	<?php echo do_shortcode('[toscanarunner_banner banner_img="http://localhost/toscanarunner/wp-content/themes/toscanarunner/img/ylo-768.jpg"]'); ?>
+            	
+                
            <!--  </div> -->
         </div> 
 	</div>
@@ -62,102 +43,11 @@
             </div>
 		</div>
 	</div>
-	</div>
 
-	<div class="row">
-		<div class="container">
-			<div class="col-md-4 col-xs-12 col-sm-4">
-				<!-- <div class="grid-col mix-grid-col_12of12MD mix-grid-col_4of12LG mix-grid-col_verticalPushMD"> -->
-                    <div class="contentBlock mix-contentBlock_borderedYellow">
-                        <div class="contentBlock-hd">
-                            <h2 class="hdg hdg_h3 mix-hdg_primaryDarkest">Discover Delivery Options in Your Area</h2>
-                        </div>
-                        <div class="contentBlock-bd mix-contentBlock-bd_collapseHeight">
-                            <div class="userContent">
-                                <p>
-                                    Enter your ZIP code to see what delivery options are available for you.
-                                </p>
-                            </div>
-                            <fieldset class="fieldset">
-                                <legend class="isVisuallyHidden">Search Delivery Areas</legend>
-                                <div class="fieldset-bd">
-                                    <label for="zipcode" class="label label_full">Zip Code</label>
-                                    <input name="ctl00$ctl00$ContentPlaceHolderTopBody$ContentPlaceHolderA$TextBoxZipCode" type="text" maxlength="5" id="ctl00_ctl00_ContentPlaceHolderTopBody_ContentPlaceHolderA_TextBoxZipCode" class="input <%= ErrorClass %>" placeholder="Enter Zip Code">
-                                </div>
-                                <div class="fieldset-submit fieldset-submit_center">
-                                    <input type="submit" name="ctl00$ctl00$ContentPlaceHolderTopBody$ContentPlaceHolderA$ButtonZipcodeLogin" value="Submit" id="ctl00_ctl00_ContentPlaceHolderTopBody_ContentPlaceHolderA_ButtonZipcodeLogin" class="btn btn_secondary">
-                                </div>
-                            </fieldset>
-                        </div>
-                    </div>
-                <!-- </div> -->
-            </div>
-            <div class="col-md-8 col-sm-8 col-xs-12">
-            	<img src="<?php echo get_template_directory_uri(); ?>/img/meals-768.jpg" class="img-responsive home-style-button-img">
-            	<div class="hero-bd hero-bd_flushMD">
-            		<div class="hero-bd-overlay">
-            			<h2 class="hero-bd-overlay-title">Ordering as easy as 1-2-3!</h2>
 
-          			</div>
-					<div class="hero-bd-cta">
-						<a class="btn btn_secondary" href="#" title="Learn More">Learn More</a>
-					</div>
-				</div>
-            </div>
-		</div>
-	</div>
+	
 
-	<div class="row">
-		<div class="container">
-			<div class="diad">
-		      <div class="diad-l">
-		        <h2 class="hdg hdg_h2">Shop Savings</h2>
-		      </div>
-		      <div class="diad-r"><a href="#" title="Shop All Savings Options">View All</a></div>
-		    </div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="container">
-			<div class="col-md-4 col-xs-12 col-sm-4">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/s1-522.jpg" class="img-responsive feature-im">
-				<div class="featureBlock-content stile stile-1 "> 
-		            <div class="featureBlock-content-hd">
-		              <h3 class="hdg hdg_h3 mix-hdg_white">Save $5 with<br>Coupon Code BH16</h3>
-		            </div> 
-		            
-		            <div class="featureBlock-content-ft">
-		              <a href="#" class="btn btn_secondary" title="Save Now">Save Now</a>
-		            </div>
-		        </div>
-			</div>
-			<div class="col-md-4 col-xs-12 col-sm-4">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/s1-522.jpg" class="img-responsive feature-im">
-				<div class="featureBlock-content stile stile-1 "> 
-		            <div class="featureBlock-content-hd">
-		              <h3 class="hdg hdg_h3 mix-hdg_white">Save $5 with<br>Coupon Code BH16</h3>
-		            </div> 
-		            
-		            <div class="featureBlock-content-ft">
-		              <a href="#" class="btn btn_secondary" title="Save Now">Save Now</a>
-		            </div>
-		        </div>
-			</div>
-			<div class="col-md-4 col-xs-12 col-sm-4">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/s1-522.jpg" class="img-responsive feature-im">
-				<div class="featureBlock-content stile stile-1 "> 
-		            <div class="featureBlock-content-hd">
-		              <h3 class="hdg hdg_h3 mix-hdg_white">Save $5 with<br>Coupon Code BH16</h3>
-		            </div> 
-		            
-		            <div class="featureBlock-content-ft">
-		              <a href="#" class="btn btn_secondary" title="Save Now">Save Now</a>
-		            </div>
-		        </div>
-			</div>
-		</div>
-	</div>
+	
 	<div class="row">
 		<div class="container">
 			<div class="diad">

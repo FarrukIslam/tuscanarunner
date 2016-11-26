@@ -33,44 +33,7 @@ $options[]   = array(
 
 
 
- // -----------------------------
-    // begin: Background section       -
-    // -----------------------------
-    array(
-      'name'      => 'backgroun_setting',
-      'title'     => 'Body Background Setting',
-      'icon'      => 'fa fa-file-image-o',
-
-      // begin: fields
-      'fields'    => array(
-
-        // begin: footer Copyright
-           array(
-          'id'            => 'body_bg',
-          'type'          => 'upload',
-          'title'         => 'Upload Body Background Image',
-          'settings'      => array(
-           'upload_type'  => 'image',
-           'button_title' => 'Upload',
-           'frame_title'  => 'Select an background image',
-           'insert_title' => 'Use this image',
-          ),
-        ),
-         array(
-            'id'      => 'body_bg_color',
-            'type'    => 'color_picker',
-            'title'   => 'Select Body Background Color',
-            'default' => '#00b2f0',
-          ),
-        
-
-      ), // begin: fields end
-
-    ), // end: Background section 
-
-
-
-
+ 
 
 
     // -----------------------------

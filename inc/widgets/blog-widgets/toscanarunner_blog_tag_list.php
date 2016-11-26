@@ -4,8 +4,8 @@
 
 class bestblog_tag_list extends WP_Widget{
 	public function __construct(){
-		parent::__construct('bestblog_tag_list','Bestblog tag list Widgets', array(
-			'description' => 'Add tag list box on Bestblog Widgets'
+		parent::__construct('bestblog_tag_list','Toscanarunner tag list Widgets', array(
+			'description' => 'Add tag list box on Toscanarunner Widgets'
 		));
 		
 	}

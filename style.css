@@ -368,6 +368,8 @@ ul.center-left {
     color: #B5121B;
     display: block;
     overflow: hidden;
+    margin-left: 20px;
+    margin-right:20px;
 }
 ul.center-left li {
     float: left;
@@ -994,4 +996,108 @@ img.woocommerce-placeholder.wp-post-image {
 }
 .free_deliv_cta a {
     color: #fe8802 !important;
+}
+img.attachment-shop_single.size-shop_single.wp-post-image {
+    width: 100%;
+    height: 315px;
+}
+.item.active{
+    height: 150px;
+}
+a.left.item-control {
+    position: absolute;
+    top: 43%;
+}
+.item-control i {
+    background: #80bb35;
+    color: #FFFFFF;
+    font-size: 20px;
+    padding: 5px 10px;
+}
+.item-control {
+    position: absolute;
+    top: 45%;
+}
+.right {
+    right: 0;
+}
+div#similar-product {
+    width: 320px;
+}
+.carousel-inner {
+    position: relative;
+    width: 320px;
+    overflow: hidden;
+}
+.carousel-inner {
+    position: relative;
+    width: 320px;
+    overflow: hidden;
+}
+.item.active img{
+    width:100%;
+}
+.product-bd-main-callout-detail-sku:after {
+    content: " | ";
+    display: none;
+}
+.header-logo {
+    width: 250px;
+    position: fixed;
+    top: 0px;
+}
+.isHeaderFixed>.header-logo {
+    width: 200px;
+}
+@media screen and (min-width: 960px){
+    .isHeaderFixed>.header-logo {
+        width: 200px;
+    }
+}
+
+
+@media screen and (max-width: 960px){
+.header-nav {
+    padding-top: 0px;
+    height: 0px;
+    background-color: transparent;
+}
+
+.header-util {
+    background-color: #80bb35;
+    height: 100px;
+}
+.headerSearch {  
+    top: 70px;
+}
+
+}
+.free_deliv_cta {
+    bottom: 100px;
+}
+.hero-bd {
+    left: 15px;
+    bottom: 36px;
+}
+/* widget section */
+ul.product_list_widget {
+    padding-top: 20px;
+}
+ul.product_list_widget li {
+    margin-bottom: 25px;
+}
+ul.product_list_widget li a img {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    float: left;
+}
+ul.product_list_widget li a  {
+   margin-right:20px;
+}
+ul.product_list_widget li a span {
+   font-size: 18px !important;
+}
+.product-bd-main-callout {
+    margin-bottom: 50px;
 }

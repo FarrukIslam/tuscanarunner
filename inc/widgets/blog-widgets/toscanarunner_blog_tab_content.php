@@ -4,8 +4,8 @@
 
 class bestblog_tab_content extends WP_Widget{
 	public function __construct(){
-		parent::__construct('bestblog_tab_content','Bestblog Tab Content Widgets', array(
-			'description' => 'Add Tab Content Bestblog Widgets'
+		parent::__construct('bestblog_tab_content','Toscanarunner Tab Content Widgets', array(
+			'description' => 'Add Tab Content Toscanarunner Widgets'
 		));
 		
 	}

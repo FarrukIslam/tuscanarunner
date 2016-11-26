@@ -25,7 +25,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 	<div class="row">
-		<div class="col-md-8">
+		 <div class="col-md-8">
+        	
+        </div>
+		<div class="col-md-4">
 			<div class="selectMenu selectMenu_wide">
                 <label class="selectMenu-label">
                     Sort By
@@ -54,20 +57,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</form>             
         	</div>
         </div>
-        <div class="col-md-4">
-        	<div style="float:right;" class="selectMenu selectMenu_wide">
-                <label class="selectMenu-label">
-                    Nutrition
-                </label>
-                <select name="" id="" class="selectMenu-input">
-					<option selected="selected" value="#">Select</option>
-					<option value="#">Highest Rated</option>
-					<option value="#">Price Low to High</option>
-					<option value="#">Price High to Low</option>
-					<option value="#">A to Z</option>
-					<option value="#">Z to A</option>
-
-				</select>                    
-        	</div>
-        </div>
+       
    </div>	

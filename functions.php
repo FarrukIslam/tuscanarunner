@@ -34,6 +34,8 @@ if (!class_exists('toscanarunner_scripts_load'))
 
 			wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/font-awesome.css', array() , toscanarunner);
 
+			wp_enqueue_style('prettyPhoto', get_template_directory_uri() . '/css/prettyPhoto.css', array() , toscanarunner);
+
 			wp_enqueue_style('scrolling-nav', get_template_directory_uri() . '/css/scrolling-nav.css', array() , toscanarunner);
 			
 			wp_enqueue_style('schwans.combined.1.0.6141.13911.min', get_template_directory_uri() . '/css/schwans.combined.1.0.6141.13911.min.css', array() , toscanarunner);
@@ -66,20 +68,16 @@ if (!class_exists('toscanarunner_scripts_load'))
 				'jquery'
 			) , toscanarunner, true);
 
+			wp_enqueue_script('jquery.prettyPhoto', get_template_directory_uri() . '/js/jquery.prettyPhoto.js', array(
+				'jquery'
+			) , toscanarunner, true);
+
 
 			wp_enqueue_script('schwans.combined.ftr.1.0.6141.13911.min', get_template_directory_uri() . '/js/schwans.combined.ftr.1.0.6141.13911.min.js', array(
 				'jquery'
 			) , toscanarunner, true);
 			
-			// wp_enqueue_script('schwans.combined.ftr2.1.0.6141.13911.min', get_template_directory_uri() . '/js/schwans.combined.ftr2.1.0.6141.13911.min.js', array(
-			// 	'jquery'
-			// ) , toscanarunner, true);
-
-
-			// wp_enqueue_script('foresee-trigger', get_template_directory_uri() . '/js/foresee-trigger.js', array(
-			// 	'jquery'
-			// ) , toscanarunner, true);
-
+			
 			
 			
 			/* wordpress comments */
@@ -109,8 +107,8 @@ if (!class_exists('toscanarunner_scripts_load'))
 
 			add_theme_support('post-thumbnails');
 
-			add_image_size('catimg640x350', 640, 350);
-			add_image_size('related_thum200x200', 200, 200);
+			add_image_size('catimg640x350', 640, 350, true);
+			add_image_size('related_thum200x200', 200, 200, true);
 			
 			
 			
@@ -126,10 +124,26 @@ if (!class_exists('toscanarunner_scripts_load'))
 			register_nav_menus(array(
 				'maincategorymenu' => __('Main Category Menu', 'toscanarunner')
 			));
+			/* register nav Right */
+			register_nav_menus(array(
+				'header_login_register' => __('Register Menu', 'toscanarunner')
+			));
 
 			/* register sidebar */
 			function toscanarunner_widgets_register_func()
 				{
+
+				register_sidebar( array(
+			        'name' => __( 'Shop Sidebar', 'toscanarunner' ),
+			        'id' => 'shop-sidebar',
+			        'description' => __( 'Widgets in this area will be shown on all shop pages.', 'toscanarunner' ),
+			        'before_widget' => ' <div class="product-bd-main-callout">
+					                <div class="product-bd-main-callout-title js-dotdotdot">',
+					'after_widget' => '</div></div>',
+					'before_title' => ' <h3 class="widget_title" itemprop="name">',
+					'after_title' => '</h3>',
+					
+				    ) );	
 					
 				register_sidebar( array(
 				        'name' => __( 'Footer Sidebar Left', 'toscanarunner' ),
@@ -212,16 +226,6 @@ function toscanarunner_default_menu_left(){
 		
 }		
 
-function toscanarunner_default_menu_right(){
-		
-		if(is_user_logged_in()){
-			echo '<ul class="middile-menu-right"> ';
-		echo '<li class="current"><a href="'.esc_url(home_url()).'/wp-admin/nav-menus.php">'. esc_html__('Create Right Menu','toscanarunner').'</a></li>';
-			echo '</ul>';
-		}	
-}		
-
-
 
 /* customize login screen */
 function toscanarunner_custom_login_page() {
@@ -271,20 +275,20 @@ function load_custom_wp_admin_style() {
 add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
 
 require_once get_template_directory() .'/inc/required_plugins.php';
-//require_once get_template_directory() .'/inc/widgets/quick-links.php';
-//require_once get_template_directory() .'/inc/widgets/social-media.php';
+require_once get_template_directory() .'/inc/widgets/quick-links.php';
+require_once get_template_directory() .'/inc/widgets/social-media.php';
 require_once get_template_directory() .'/inc/shortcodes/toscanarunner-shortcodes.php';
-require_once get_template_directory() .'/inc/band.php';
+require_once get_template_directory() .'/inc/shortcodes/ps-extend-vc.php';
 require_once get_template_directory() .'/inc/woocommerce-support.php';
 
 
 
-require 'inc/widgets/blog-widgets/bestblog_search.php';
-require 'inc/widgets/blog-widgets/bestblog_tag_list.php';
-require 'inc/widgets/blog-widgets/bestblog_category.php';
-require 'inc/widgets/blog-widgets/bestblog_tab_content.php';
+require 'inc/widgets/blog-widgets/toscanarunner_blog_search.php';
+require 'inc/widgets/blog-widgets/toscanarunner_blog_tag_list.php';
+require 'inc/widgets/blog-widgets/toscanarunner_blog_category.php';
+require 'inc/widgets/blog-widgets/toscanarunner_blog_tab_content.php';
 require 'inc/widgets/blog-widgets/twitter-feed.php';
-require 'inc/widgets/blog-widgets/bestblog-recentpost.php';
+require 'inc/widgets/blog-widgets/toscanarunner_blog-recentpost.php';
 
 /* blog fuction */
 

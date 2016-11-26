@@ -3,8 +3,8 @@
 
 class Bestblog_recentpost extends WP_Widget{
 	public function __construct(){
-		parent::__construct('Bestblog_recentpost','Bestblog Recent post Widgets', array(
-			'description' => 'Add Bestblog recent post'
+		parent::__construct('Bestblog_recentpost','Toscanarunner Recent post Widgets', array(
+			'description' => 'Add Toscanarunner recent post'
 		));
 		
 	}

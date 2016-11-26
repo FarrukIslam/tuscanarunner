@@ -28,7 +28,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! empty( $breadcrumb ) ) {
 
+echo '<div class="container">';
 	echo $wrap_before;
+	
 echo '<ol class="breadcrumbs">';
 	foreach ( $breadcrumb as $key => $crumb ) {
 
@@ -48,7 +50,8 @@ echo '<ol class="breadcrumbs">';
 
 	}
 echo '</ol>';
-	echo $wrap_after;
 
+	echo $wrap_after;
+echo '</div>';
 }
 

@@ -4,8 +4,8 @@
 
 class bestblog_search extends WP_Widget{
 	public function __construct(){
-		parent::__construct('bestblog_search','Bestblog Seach Widgets', array(
-			'description' => 'Add Seach box on Bestblog Widgets'
+		parent::__construct('bestblog_search','Toscanarunner Seach Widgets', array(
+			'description' => 'Add Seach box on Toscanarunner Widgets'
 		));
 		
 	}

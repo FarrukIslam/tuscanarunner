@@ -21,7 +21,7 @@ remove_action('woocommerce_before_shop_loop','woocommerce_result_count', 20);
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 20 );
 
 //remove rating 
-remove_action('woocommerce_after_shop_loop_item_title','woocommerce_template_loop_rating', 5);
+//remove_action('woocommerce_after_shop_loop_item_title','woocommerce_template_loop_rating', 5);
 
 //remove singe page title 
 remove_action('woocommerce_single_product_summary','woocommerce_template_single_title', 5);
@@ -45,7 +45,7 @@ remove_action('woocommerce_sidebar','woocommerce_get_sidebar', 10);
 
 //ajaxfy cart 
 
-// Ensure cart contents update when products are added to the cart via AJAX (place the following in functions.php)
+
 add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
 function woocommerce_header_add_to_cart_fragment( $fragments ) {
 	ob_start();
@@ -58,7 +58,55 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 	return $fragments;
 }
 
+remove_action( 'woocommerce_product_thumbnails', 'woocommerce_show_product_thumbnails', 20 );
 
+//add to curosel slider single product page
+
+add_action( 'woocommerce_product_thumbnails', 'toscanarunner_curosel_single_product_fun');
+
+function toscanarunner_curosel_single_product_fun(){
+
+	global $post, $product, $woocommerce;
+	$attachment_ids = $product->get_gallery_attachment_ids();
+
+	if($attachment_ids) :
+
+	?>
+	<div id="similar-product" class="carousel slide" data-ride="carousel">
+								
+	  <!-- Wrapper for slides -->
+	    <div class="carousel-inner">
+
+	    	<?php 
+	    		$i = 0;
+				foreach ($attachment_ids as $attachment_id) :
+	    	
+	    		$image_link       = wp_get_attachment_url( $attachment_id );	
+	    	?>
+			<div class="item <?php if($i == 0) {echo 'active';}?>">
+			  <a href=""><img src="<?php echo $image_link; ?>" alt=""></a>
+			</div>
+
+			<?php 
+				$i++;
+				endforeach;
+			?>
+			
+			
+		</div>
+
+		  <!-- Controls -->
+		  <a class="left item-control" href="#similar-product" data-slide="prev">
+			<i class="fa fa-angle-left"></i>
+		  </a>
+		  <a class="right item-control" href="#similar-product" data-slide="next">
+			<i class="fa fa-angle-right"></i>
+		  </a>
+	</div>
+
+	<?php 
+	endif;
+}
 		
 //sku number setup after title
 function toscanarunner_sku_after_title(){
@@ -70,25 +118,100 @@ function toscanarunner_sku_after_title(){
 
 	?>
 	<span class="product-bd-main-callout-detail-sku">
-		<?php echo $sku_num; ?>
+		<?php echo '<span class="meta-attribute">SKU : </span>'.$sku_num; ?>
 	</span>
 
 	<?php 
-	global $post;
-$terms = get_the_terms( $post->ID, 'product_cat' );
-foreach ($terms as $term) {
 
-echo '<span class="product-bd-main-callout-detail-serving">'.$term->name .'</span>';
-	}
 }
 add_action('woocommerce_single_product_summary','toscanarunner_sku_after_title', 6);
 
 
+//show weight product
+
+function toscanarunner_show_weight() {
+	global $product;
+ if ( $product->has_weight() ) {
+ echo '<p><span class="meta-attribute">Weight:</span> ' . $product->get_weight() . ' ' . esc_attr( get_option( 'woocommerce_weight_unit' ) ) . '</p>';
+	} 
+}
+add_action( 'woocommerce_single_product_summary', 'toscanarunner_show_weight', 39 );
+
+//show dimensions
+function toscanarunner_show_dimensions() {
+    global $product;
+    $dimensions = $product->get_dimensions();
+        if ( ! empty( $dimensions ) ) {
+                echo '<span class="dimensions"> <span class="meta-attribute">Dimensions : </span>' . $dimensions . '</span>';
+        }
+}
+add_action( 'woocommerce_single_product_summary', 'toscanarunner_show_dimensions', 40 );
 
 
+//stockabilitity
+function toscanarunner_stock_abilitity(){
 
-//remove breachcome
-remove_action('woocommerce_single_product_summary','woocommerce_template_single_excerpt', 20);
+	global $product;
+	$in_stock = $product->is_in_stock() ? 'In Stock' : 'No Stock';
+
+?>
+   <p><?php _e('<span class="meta-attribute">Availability :</span>','toscanarunner'); ?><?php echo $in_stock; ?> </p>
+<?php   
+
+}
+add_action('woocommerce_single_product_summary','toscanarunner_stock_abilitity',42);
+
+
+//band secton 
+
+function woo_add_custom_general_fields() {
+
+  global $woocommerce, $post;
+  
+  echo '<div class="options_group">';
+  
+  		// Text Field
+		woocommerce_wp_text_input( 
+			array( 
+				'id'          => '_text_field', 
+				'label'       => __( 'Brand Name :', 'toscanarunner' ), 
+				'placeholder' => 'Write your Brand name',
+				'desc_tip'    => 'true',
+				'description' => __( 'Enter Brand name value.', 'toscanarunner' ) 
+			)
+		); 
+
+  echo '</div>';
+	
+}
+add_action( 'woocommerce_product_options_general_product_data', 'woo_add_custom_general_fields' );
+
+
+// Save Fields
+function woo_add_custom_general_fields_save( $post_id ){
+	
+	// Text Field
+	$woocommerce_text_field = $_POST['_text_field'];
+	if( !empty( $woocommerce_text_field ) )
+		update_post_meta( $post_id, '_text_field', esc_attr( $woocommerce_text_field ) );
+	
+}
+
+add_action( 'woocommerce_process_product_meta', 'woo_add_custom_general_fields_save' );
+
+//display band
+function toscanarunner_brand_name_fun(){
+	
+	$brand_name = get_post_meta(get_the_ID(), '_text_field', true );
+
+	if($brand_name) :
+
+?>
+   <p><b> <?php _e('Brand :','toscanarunner'); ?></b> <?php echo $brand_name; ?> </p>
+<?php   
+    endif;
+}
+add_action('woocommerce_single_product_summary','toscanarunner_brand_name_fun',45);
 
 //remove cagetory description
 remove_action('woocommerce_archive_description','woocommerce_product_archive_description', 10);
@@ -104,93 +227,12 @@ remove_action('woocommerce_single_product_summary','woocommerce_template_single_
 remove_action('woocommerce_single_product_summary','woocommerce_template_single_excerpt', 20);
 
 //remove single product category
-remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+//remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 
 
 
 
 //remove single product related product
-remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
-
-
-
-
-//add tabs list and content 
-
-//add tabs list and content 
-
-add_filter( 'woocommerce_product_tabs', 'eshopper_woo_new_product_tab' );
-function eshopper_woo_new_product_tab( $tabs ) {
-	
-	// Adds the new tab
-	
-	$tabs['company_profile_tab'] = array(
-		'title' 	=> __( 'Preparation', 'woocommerce' ),
-		'priority' 	=> 50,
-		'callback' 	=> 'eshopper_woo_new_product_tab_company'
-	);
-
-	
-
-	return $tabs;
-
-}
-
-
-function eshopper_woo_new_product_tab_company() {
-
-	$brands = wp_get_post_terms(get_the_ID(),'brand');
-
-		foreach ($brands as $brand) :
-
-		 $brand_name  = $brand->name;
-		 $brand_desce  = $brand->description;
-		 $brand_img = get_term_meta($brand->term_id, 'cat_term_img', true );
-
-		?>
-		 <div class="col-sm-3">
-			<div class="product-image-wrapper">
-				<div class="single-products">
-					<div class="productinfo text-center">
-						<img src="<?php echo $brand_img; ?>" alt="">
-						<h2><?php echo $brand_name; ?></h2>
-						<p><?php echo $brand_desce; ?></p>
-						
-					</div>
-				</div>
-			</div>
-		</div>
-		<?php 
-
-		endforeach;	
-	
-}
-
-//rearrange tab list 
-
-function woo_reorder_tabs( $tabs ) {
-
-
-	$tabs['description']['priority'] = 5;			
-	$tabs['company_profile_tab']['priority'] = 10;			
-	//$tabs['tag_tab']['priority'] = 15;	
-	$tabs['reviews']['priority'] = 20;			
-
-	return $tabs;
-}
-add_filter( 'woocommerce_product_tabs', 'woo_reorder_tabs', 98 );
-
-
-/**extra for the theme */
-function skyverge_shop_display_skus() {
-
-	global $product;
-	
-	if ( $product->get_sku() ) {
-		echo '<div class="product-meta">SKU: ' . $product->get_sku() . '</div>';
-	}
-}
-add_action( 'woocommerce_after_shop_loop_item', 'skyverge_shop_display_skus', 9 );
-
+//remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
 
