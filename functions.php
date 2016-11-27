@@ -275,8 +275,8 @@ function load_custom_wp_admin_style() {
 add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
 
 require_once get_template_directory() .'/inc/required_plugins.php';
-require_once get_template_directory() .'/inc/widgets/quick-links.php';
-require_once get_template_directory() .'/inc/widgets/social-media.php';
+//require_once get_template_directory() .'/inc/widgets/quick-links.php';
+//require_once get_template_directory() .'/inc/widgets/social-media.php';
 require_once get_template_directory() .'/inc/shortcodes/toscanarunner-shortcodes.php';
 require_once get_template_directory() .'/inc/shortcodes/ps-extend-vc.php';
 require_once get_template_directory() .'/inc/woocommerce-support.php';
