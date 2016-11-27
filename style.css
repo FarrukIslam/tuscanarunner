@@ -1101,3 +1101,15 @@ ul.product_list_widget li a span {
 .product-bd-main-callout {
     margin-bottom: 50px;
 }
+.featureBlock-content {
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    width: 92%;
+    padding: 15px;
+    background-color: #000;
+    background-color: rgba(0,0,0,.3);
+    color: #fff;
+    box-sizing: border-box;
+    right: 23px;
+}

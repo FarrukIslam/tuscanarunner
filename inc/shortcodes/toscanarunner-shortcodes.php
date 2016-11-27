@@ -251,7 +251,7 @@ function toscanarunner_productitem_shortcode_func( $atts ) {
 
     $args = array(
             'post_type' => 'product',
-            'post_per_page' => $numberpost,
+            'posts_per_page' => $numberpost,
     );
 
     $crate_products = new WP_Query ( $args );
