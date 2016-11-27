@@ -244,6 +244,66 @@ vc_map( array(
   )
 ) );
 
+//ads section 
+vc_map( array(
+  "name" => __("Ad Image & Link", 'toscanarunner'),
+  "base" => "ad_section",
+  "icon" => "ad_section_icon",
+  "category" =>array('By toscanarunner', 'Content'),
+  "description" => __('Add Image and Link', 'toscanarunner'),
+  "params" => array(
+  		 array(
+		  "type" => "attach_image",
+		  "heading" => __("Image", 'toscanarunner '),
+		  "param_name" => "img",
+		  "value" => "",
+		  "description" => __("Select image from media library.", 'toscanarunner')
+		),
+		
+		array(
+		  "type" => "textfield",
+		  "heading" => __("Add Link", 'toscanarunner'),
+		  "param_name" => "link",
+		  "admin_label" => true,
+		  "value" => __("#", 'toscanarunner')
+		),
+
+  )
+) );
 
 
+//custom product link 
+vc_map( array(
+  "name" => __("Add Custom Product Link", 'toscanarunner'),
+  "base" => "custom_product_link",
+  "icon" => "custom_product_link_icon",
+  "category" =>array('By toscanarunner', 'Content'),
+  "description" => __('Add Custom Product Link with custom Image', 'toscanarunner'),
+  "params" => array(
+  		 array(
+		  "type" => "attach_image",
+		  "heading" => __("Image", 'toscanarunner '),
+		  "param_name" => "img",
+		  "value" => "",
+		  "description" => __("Select image from media library.", 'toscanarunner')
+		),
+		
+		array(
+		  "type" => "textfield",
+		  "heading" => __("Add Link", 'toscanarunner'),
+		  "param_name" => "link",
+		  "admin_label" => true,
+		  "value" => __("#", 'toscanarunner')
+		),
+
+		array(
+		  "type" => "textarea_html",
+		  "heading" => __("Add Title Custom Product", 'toscanarunner'),
+		  "param_name" => "title",
+		  "admin_label" => true,
+		  "value" => __("Set Add Title Custom Product", 'toscanarunner')
+		),
+
+  )
+) );
 

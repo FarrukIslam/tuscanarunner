@@ -374,3 +374,72 @@ function jc_featured_products($atts){
 	return '<div class="woocommerce">' . ob_get_clean() . '</div>';
 }
 
+//ad section 
+function toscanarunner_adsection_shortcode_func( $atts ) {
+    extract( shortcode_atts( array(
+    'link' => '#',
+    'img' => '',
+    
+   ), $atts) );
+  $image = wp_get_attachment_image_src( $img, 'full');
+   $image_src = $image['0'];	 
+	
+	
+ ob_start();
+
+ ?>
+<div class="specialOffer-zTile_parent specialOffer specialOffer_persistent buttonBottom">
+  <div class="zTilecopy">
+    <div class=" ">
+      <img class="zTile lazyloaded" alt="" src="<?php echo $image_src; ?>">
+    </div>
+    <div class="btnFloat_z">
+      <a href="<?php echo $link; ?>" class="btn btn_secondary">Get Started</a>
+    </div>
+    <a href="<?php echo $link; ?>" class="fillLink"></a>
+  </div>
+</div>
+ <?php 
+ $html = ob_get_contents();
+ ob_get_clean();
+ return $html;
+}
+
+add_shortcode('ad_section', 'toscanarunner_adsection_shortcode_func');
+
+
+
+
+// custom product link 
+function toscanarunner_customproduct_shortcode_func( $atts ) {
+    extract( shortcode_atts( array(
+    'link' => '#',
+    'img' => '',
+    'title' => '',
+    
+   ), $atts) );
+  $image = wp_get_attachment_image_src( $img, 'full');
+   $image_src = $image['0'];	 
+	
+	
+ ob_start();
+
+ ?>
+	<img src="<?php echo $image_src; ?>" class="img-responsive feature-im">
+	<div class="featureBlock-content stile stile-1 "> 
+        <div class="featureBlock-content-hd">
+          <h3 class="hdg hdg_h3 mix-hdg_white"><?php echo $title; ?></h3>
+        </div> 
+        
+        <div class="featureBlock-content-ft">
+          <a href="<?php echo $link; ?>" class="btn btn_secondary" title="Save Now">Save Now</a>
+        </div>
+    </div>
+ <?php 
+ $html = ob_get_contents();
+ ob_get_clean();
+ return $html;
+}
+
+add_shortcode('custom_product_link', 'toscanarunner_customproduct_shortcode_func');
+
